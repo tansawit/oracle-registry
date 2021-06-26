@@ -19,7 +19,7 @@ contract OracleRegistryBase {
         chainlinkOracle = _chainlinkOracle;
     }
 
-    function getOraclePrice(
+    function getPrice(
         address baseToken,
         address quoteToken,
         OracleType oracleType
