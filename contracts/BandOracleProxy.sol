@@ -11,7 +11,7 @@ contract BandOracleProxy is IBaseOracle, AccessControl {
 
     bytes32 public constant MAPPER_ROLE = keccak256("MAPPER_ROLE");
 
-    constructor(ITokenRegistry _tokenRegistry, IStdReference _stdRef) public {
+    constructor(ITokenRegistry _tokenRegistry, IStdReference _stdRef) {
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _setupRole(MAPPER_ROLE, msg.sender);
 

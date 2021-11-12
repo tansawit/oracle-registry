@@ -14,7 +14,7 @@ contract OracleRegistryBase {
     IBaseOracle bandOracle;
     IBaseOracle chainlinkOracle;
 
-    constructor(IBaseOracle _bandOracle, IBaseOracle _chainlinkOracle) public {
+    constructor(IBaseOracle _bandOracle, IBaseOracle _chainlinkOracle) {
         bandOracle = _bandOracle;
         chainlinkOracle = _chainlinkOracle;
     }
@@ -28,6 +28,8 @@ contract OracleRegistryBase {
             return bandOracle.getPrice(baseToken, quoteToken);
         } else if (oracleType == chainlinkOracleType) {
             return chainlinkOracle.getPrice(baseToken, quoteToken);
+        } else {
+            revert("unsupported-oracle-type");
         }
     }
 }
